@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For Dad — A Father's Day Tribute</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#2b1608;
+  --ink2:#4a230f;
+  --navy:#6b3a1a;
+  --brass:#e8a23b;
+  --brass-light:#f6c873;
+  --burgundy:#9c3f2e;
+  --olive:#8a7a2e;
+  --rust:#c1502e;
+  --ivory:#fff3e0;
+  --ivory-dim:rgba(255,243,224,.8);
+  --ivory-faint:rgba(255,243,224,.45);
+  --glass:rgba(255,243,224,.08);
+  --glass-strong:rgba(255,243,224,.15);
+  --border:rgba(246,200,115,.4);
+  --border-soft:rgba(255,243,224,.18);
+}
+body{
+  font-family:'Outfit',sans-serif;
+  color:var(--ivory);
+  min-height:100vh;
+  overflow-x:hidden;
+  position:relative;
+  background:linear-gradient(135deg,#6b2f12 0%,#c1502e 35%,#e8a23b 68%,#8a4420 100%);
+  background-size:400% 400%;
+  animation:gradientShift 20s ease infinite;
+}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 760px 560px at 12% -4%,rgba(246,200,115,.2),transparent 60%),
+    radial-gradient(ellipse 640px 480px at 104% 104%,rgba(193,80,46,.22),transparent 60%);
+}
+@keyframes gradientShift{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+.hearts-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.fheart{position:absolute;animation:floatUp linear infinite;opacity:0;color:var(--brass-light);}
+@keyframes floatUp{
+  0%{transform:translateY(110vh) rotate(0deg);opacity:0;}
+  10%{opacity:.55;}
+  90%{opacity:.3;}
+  100%{transform:translateY(-120px) rotate(180deg);opacity:0;}
+}
+
+header{position:relative;z-index:2;text-align:center;padding:56px 20px 22px;}
+.badge{display:inline-flex;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--brass-light);background:rgba(232,162,59,.08);border:1px solid var(--border);padding:9px 20px;border-radius:100px;margin-bottom:24px;}
+h1{font-family:'Fraunces',serif;font-size:clamp(40px,9vw,76px);font-weight:600;line-height:1.02;letter-spacing:-1px;color:var(--ivory);}
+h1 em{font-style:italic;font-weight:500;color:var(--brass-light);text-shadow:0 0 40px rgba(232,162,59,.35);}
+.tagline{margin-top:14px;font-size:14px;color:var(--ivory-dim);font-weight:300;max-width:420px;margin-left:auto;margin-right:auto;}
+
+.wrap{position:relative;z-index:2;max-width:700px;margin:0 auto 100px;padding:0 18px;}
+
+.card{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--border-soft);border-radius:18px;padding:36px;margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.35);}
+.step-badge{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--brass),var(--rust));color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 4px 14px rgba(232,162,59,.35);}
+.card-title{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin-bottom:4px;color:var(--ivory);}
+.card-sub{font-size:12px;color:var(--ivory-dim);margin-bottom:26px;}
+
+.lbl{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(244,234,217,.6);margin-bottom:9px;}
+input[type=text],textarea{
+  width:100%;padding:14px 18px;font-family:'Outfit',sans-serif;font-size:14px;color:var(--ivory);
+  background:var(--glass-strong);border:1px solid var(--border-soft);border-radius:12px;outline:none;
+  transition:border-color .2s,box-shadow .2s;resize:none;
+}
+input[type=text]::placeholder,textarea::placeholder{color:rgba(244,234,217,.35);}
+input[type=text]:focus,textarea:focus{border-color:var(--brass);box-shadow:0 0 0 3px rgba(232,162,59,.12);}
+textarea{height:90px;line-height:1.6;}
+.f{margin-bottom:22px;}
+
+.balloon-list{display:flex;flex-direction:column;gap:14px;margin-bottom:16px;}
+.b-item{background:rgba(244,234,217,.03);border:1px solid var(--border-soft);border-radius:16px;padding:20px;transition:border-color .2s;}
+.b-item:hover{border-color:var(--border);}
+.b-item-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.b-num{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--brass),var(--rust));color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.b-item-title{font-weight:500;font-size:14px;flex:1;color:var(--ivory);}
+.b-del{background:none;border:none;cursor:pointer;color:rgba(244,234,217,.5);font-size:16px;padding:4px;border-radius:50%;transition:background .2s,color .2s;}
+.b-del:hover{background:rgba(156,63,46,.4);color:#fff;}
+.b-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:500px){.b-row{grid-template-columns:1fr;}}
+
+.photo-slot{aspect-ratio:1;border:1.5px dashed var(--border-soft);border-radius:10px;position:relative;overflow:hidden;background:rgba(244,234,217,.03);transition:border-color .2s;cursor:pointer;}
+.photo-slot:hover{border-color:var(--brass);}
+.photo-slot input[type=file]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;z-index:3;}
+.photo-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;z-index:1;}
+.photo-slot.filled img{display:block;}
+.photo-icon{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:20px;color:rgba(244,234,217,.4);pointer-events:none;}
+.photo-icon small{font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(244,234,217,.4);margin-top:5px;letter-spacing:1px;}
+.photo-slot.filled .photo-icon{display:none;}
+.photo-uploading{position:absolute;inset:0;background:rgba(43,22,8,.55);display:none;flex-direction:column;align-items:center;justify-content:center;gap:6px;z-index:5;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ivory);}
+.photo-slot.uploading .photo-uploading{display:flex;}
+.upload-spinner{width:20px;height:20px;border:2px solid rgba(244,234,217,.2);border-top-color:var(--brass-light);border-radius:50%;animation:spin .7s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.del-x{position:absolute;top:5px;right:5px;width:20px;height:20px;border-radius:50%;background:rgba(156,63,46,.92);border:none;font-size:10px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:4;color:#fff;font-weight:700;padding:0;}
+.photo-slot.filled .del-x{display:flex;}
+
+.add-balloon-btn{width:100%;padding:16px;background:rgba(244,234,217,.03);border:1.5px dashed var(--border-soft);border-radius:14px;color:var(--ivory-dim);font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.add-balloon-btn:hover{background:var(--glass-strong);border-color:var(--brass);color:var(--ivory);}
+
+.hint-box{background:rgba(232,162,59,.08);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:18px;font-size:12.5px;color:var(--ivory-dim);line-height:1.6;}
+.hint-box strong{font-weight:600;color:var(--brass-light);}
+
+.price-badge{background:var(--glass-strong);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px 24px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.price-left{display:flex;flex-direction:column;gap:4px;}
+.price-label{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(244,234,217,.55);}
+.price-amount{font-family:'Fraunces',serif;font-size:32px;font-weight:600;color:var(--brass-light);}
+.price-amount span{font-size:16px;font-weight:400;}
+.price-features{display:flex;flex-direction:column;gap:5px;}
+.price-feat{font-size:11.5px;color:var(--ivory-dim);display:flex;align-items:center;gap:7px;}
+.price-feat::before{content:'✓';color:var(--brass-light);font-weight:700;}
+
+/* Coupon */
+.coupon-row{display:flex;gap:8px;margin-bottom:12px;}
+.coupon-row input{flex:1;}
+.coupon-apply-btn{padding:14px 20px;background:var(--glass-strong);border:1px solid var(--border-soft);border-radius:12px;color:var(--ivory);font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;transition:border-color .2s,background .2s;}
+.coupon-apply-btn:hover{background:rgba(244,234,217,.13);border-color:var(--brass);}
+.coupon-msg{display:none;font-size:13px;margin-bottom:12px;padding:10px 16px;border-radius:10px;}
+.coupon-msg.ok{background:rgba(138,122,46,.25);border:1px solid rgba(138,122,46,.5);}
+.coupon-msg.fail{background:rgba(156,63,46,.25);border:1px solid rgba(156,63,46,.5);}
+
+.free-prev-btn{width:100%;padding:16px;background:transparent;border:1.5px solid var(--ivory-faint);border-radius:14px;font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:500;color:var(--ivory-dim);cursor:pointer;transition:all .2s;margin-bottom:12px;}
+.free-prev-btn:hover{background:var(--glass-strong);border-color:var(--ivory-dim);color:var(--ivory);}
+.pay-btn{
+  width:100%;padding:19px;
+  background:linear-gradient(45deg,var(--brass),var(--brass-light),var(--rust));
+  background-size:200% 200%;
+  color:var(--ink);border:none;border-radius:14px;font-family:'Outfit',sans-serif;font-size:14.5px;font-weight:600;letter-spacing:.2px;
+  cursor:pointer;box-shadow:0 10px 32px rgba(232,162,59,.3);transition:all .25s;display:flex;align-items:center;justify-content:center;gap:10px;
+  animation:btnGlow 6s ease infinite;
+}
+@keyframes btnGlow{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+.pay-btn:hover{transform:translateY(-2px);box-shadow:0 16px 44px rgba(232,162,59,.45);}
+.pay-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
+
+.err{display:none;background:rgba(156,63,46,.25);border:1px solid rgba(156,63,46,.55);border-radius:12px;padding:12px 16px;color:var(--ivory);font-size:13px;margin-bottom:14px;}
+
+.result{display:none;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--border-soft);border-radius:18px;padding:40px;text-align:center;box-shadow:0 18px 50px rgba(0,0,0,.35);margin-top:20px;}
+.result-icon{font-family:'Fraunces',serif;font-style:italic;font-size:44px;color:var(--brass-light);margin-bottom:14px;}
+.result h3{font-family:'Fraunces',serif;font-size:28px;font-weight:600;margin-bottom:8px;color:var(--ivory);}
+.result p{color:var(--ivory-dim);font-size:13px;margin-bottom:24px;}
+.link-box{display:flex;gap:8px;align-items:center;background:var(--glass-strong);border:1px solid var(--border-soft);border-radius:12px;padding:12px 16px;margin-bottom:16px;}
+.copy-btn{background:linear-gradient(135deg,var(--brass),var(--brass-light));color:var(--ink);border:none;border-radius:8px;padding:8px 16px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap;}
+.open-btn{display:inline-block;padding:15px 36px;background:linear-gradient(135deg,var(--brass),var(--rust));color:var(--ink);font-weight:600;border-radius:100px;font-family:'Outfit',sans-serif;font-size:14px;text-decoration:none;box-shadow:0 8px 26px rgba(232,162,59,.3);margin-bottom:12px;}
+.reset-btn{background:transparent;color:var(--ivory-dim);border:1px solid var(--border-soft);border-radius:12px;padding:12px 24px;font-family:'Outfit',sans-serif;font-size:13px;cursor:pointer;margin-top:6px;display:block;width:100%;}
+.paid-banner{background:rgba(138,122,46,.22);border:1px solid rgba(138,122,46,.5);border-radius:14px;padding:16px 20px;margin-bottom:20px;display:none;align-items:center;gap:12px;font-size:13px;color:var(--ivory);}
+.paid-banner.show{display:flex;}
+
+.loading-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(43,22,8,.94);backdrop-filter:blur(10px);flex-direction:column;align-items:center;justify-content:center;gap:20px;}
+.loading-overlay.show{display:flex;}
+.loading-orb{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,var(--brass),var(--rust));display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-style:italic;font-size:26px;color:var(--ink);box-shadow:0 14px 40px rgba(232,162,59,.4);animation:pulse 1.6s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
+.loading-title{font-family:'Fraunces',serif;font-size:21px;font-weight:600;color:var(--ivory);}
+.loading-sub{font-size:13px;color:var(--ivory-dim);}
+.loading-dots{display:flex;gap:6px;}
+.loading-dots span{width:7px;height:7px;border-radius:50%;background:var(--brass-light);animation:dot 1.2s ease-in-out infinite;}
+.loading-dots span:nth-child(2){animation-delay:.2s;}
+.loading-dots span:nth-child(3){animation-delay:.4s;}
+@keyframes dot{0%,80%,100%{transform:scale(0);opacity:.3;}40%{transform:scale(1);opacity:1;}}
+</style>
+</head>
+<body>
+
+<div class="hearts-bg" id="heartsBg"></div>
+
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-orb">✦</div>
+  <div class="loading-title" id="loadingTitle">Putting it together…</div>
+  <div class="loading-sub" id="loadingSub">One moment</div>
+  <div class="loading-dots"><span></span><span></span><span></span></div>
+</div>
+
+<header>
+  <div class="badge">Father's Day · A Keepsake</div>
+  <h1>For Dad,<br/><em>With Gratitude</em></h1>
+  <p class="tagline">Memories he pops open, one by one — and a letter to keep after</p>
+</header>
+
+<div class="wrap">
+  <div class="paid-banner" id="paidBanner">
+    <span style="font-size:22px;color:var(--brass-light);">✓</span>
+    <div><strong>Payment successful.</strong> Here's his permanent link.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-badge">1</div>
+    <div class="card-title">About Him</div>
+    <div class="card-sub">A couple of details to make this his.</div>
+    <div class="f"><label class="lbl">His Name *</label><input type="text" id="herName" placeholder="Dad, Papa, his name…"/></div>
+    <div class="f"><label class="lbl">From</label><input type="text" id="yourName" placeholder="Who's this from?"/></div>
+  </div>
+
+  <div class="card">
+    <div class="step-badge">2</div>
+    <div class="card-title">Memory Balloons</div>
+    <div class="card-sub">Each one he pops reveals a memory, a thank-you, or something you've never said out loud — add a photo if you've got one.</div>
+    <div class="balloon-list" id="balloonList"></div>
+    <button class="add-balloon-btn" onclick="addBalloon()">+ Add another memory</button>
+  </div>
+
+  <div class="card">
+    <div class="step-badge">3</div>
+    <div class="card-title">The Letter</div>
+    <div class="card-sub">What he reads at the end — leave blank for a heartfelt default.</div>
+    <div class="f"><label class="lbl">Your Message</label>
+      <textarea id="msg" placeholder="Leave it blank and we'll write something he'll want to keep…"></textarea>
+    </div>
+  </div>
+
+  <div class="hint-box">
+    <strong>Photos upload instantly</strong> — the link opens clean on any phone, no app needed.
+  </div>
+
+  <div class="price-badge">
+    <div class="price-left">
+      <div class="price-label">One-time payment</div>
+      <div class="price-amount"><span>₹</span><span id="displayPrice">79</span></div>
+    </div>
+    <div class="price-features">
+      <div class="price-feat">Permanent shareable link</div>
+      <div class="price-feat">Works on any phone</div>
+      <div class="price-feat">Photos stored safely</div>
+      <div class="price-feat">Ready in seconds</div>
+    </div>
+  </div>
+
+  <div class="err" id="errBox"></div>
+
+  <!-- Coupon code -->
+  <div class="coupon-row">
+    <input type="text" id="couponInput" placeholder="Got a coupon code?"/>
+    <button class="coupon-apply-btn" onclick="applyCoupon()">Apply</button>
+  </div>
+  <div class="coupon-msg" id="couponMsg"></div>
+
+  <button class="free-prev-btn" onclick="doPreview()">Preview first — free, 30s</button>
+  <button class="pay-btn" id="payBtn" onclick="doPay()">
+    Get His Tribute Link — ₹<span id="priceLabel">79</span>
+  </button>
+
+  <div class="result" id="resultBox">
+    <div class="result-icon">✦</div>
+    <h3>Ready to send</h3>
+    <p>Copy this link and send it — works on any phone.</p>
+    <div class="link-box">
+      <a id="openLinkInline" href="#" target="_blank" rel="noopener" style="flex:1;font-size:12px;color:var(--ivory);word-break:break-all;text-decoration:underline;opacity:0.85;">—</a>
+      <button class="copy-btn" id="copyBtn" onclick="copyIt()">Copy Link</button>
+    </div>
+    <a id="openLink" class="open-btn" href="#" target="_blank" rel="noopener">Open &amp; Preview →</a>
+    <a id="waLink" href="#" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;border-radius:14px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;text-decoration:none;margin-bottom:12px;">Share via WhatsApp</a>
+    <button class="reset-btn" onclick="resetAll()">Make another ↩</button>
+  </div>
+</div>
+
+
+<script>
+var SUPA_URL = 'https://rulpkgkgieztsdvpkuso.supabase.co';
+var SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ1bHBrZ2tnaWV6dHNkdnBrdXNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA0ODE3OTYsImV4cCI6MjA5NjA1Nzc5Nn0.VY50njf_lIvFP5RpwlTTiSe2z8vnyuwP-Gi9krKk60U';
+var RZP_KEY = 'rzp_live_SmizRaPApu81ZS';
+// NOTE: update this once you deploy to your Father's Day Cloudflare Pages project
+var SITE_URL = 'https://sorry-rxw.pages.dev/';
+var BUCKET = 'photos';
+
+// ── Coupon codes ──
+var COUPONS = {
+  'FEIN':  { amount: 0,    display: '₹0',  label: 'Free!' },
+  'FEIN1': { amount: 100,  display: '₹1',  label: '₹1'   },
+  'JDP60': { amount: 5900, display: '₹59', label: '₹59'  },
+};
+var appliedCoupon = null;
+
+function applyCoupon() {
+  var code = document.getElementById('couponInput').value.trim().toUpperCase();
+  if (!code) { showCouponMsg('Enter a coupon code first', false); return; }
+  if (COUPONS[code]) {
+    appliedCoupon = { code: code, amount: COUPONS[code].amount, display: COUPONS[code].display };
+    document.getElementById('priceLabel').textContent = COUPONS[code].label;
+    document.getElementById('displayPrice').textContent = COUPONS[code].label;
+    showCouponMsg('Coupon applied — you pay ' + COUPONS[code].display, true);
+  } else {
+    appliedCoupon = null;
+    document.getElementById('priceLabel').textContent = '79';
+    document.getElementById('displayPrice').textContent = '79';
+    showCouponMsg('Invalid coupon code', false);
+  }
+}
+
+function showCouponMsg(msg, success) {
+  var el = document.getElementById('couponMsg');
+  el.textContent = msg;
+  el.style.display = 'block';
+  el.className = 'coupon-msg ' + (success ? 'ok' : 'fail');
+}
+
+// ── Ambient floating marks ──
+(function(){
+  var e=['✦','✧','·','◆'], w=document.getElementById('heartsBg');
+  for(var i=0;i<12;i++){
+    var d=document.createElement('div'); d.className='fheart';
+    d.textContent=e[i%e.length];
+    d.style.cssText='left:'+Math.random()*100+'%;animation-delay:'+Math.random()*20+'s;animation-duration:'+(14+Math.random()*14)+'s;font-size:'+(10+Math.random()*10)+'px;position:absolute;';
+    w.appendChild(d);
+  }
+})();
+
+var balloons=[], bCount=0;
+
+function compress(dataURL, maxPx, q) {
+  return new Promise(function(res) {
+    var img = new Image();
+    img.onload = function() {
+      var w = img.width, h = img.height;
+      if (w > h) { if (w > maxPx) { h = Math.round(h * maxPx / w); w = maxPx; } }
+      else { if (h > maxPx) { w = Math.round(w * maxPx / h); h = maxPx; } }
+      var c = document.createElement('canvas'); c.width = w; c.height = h;
+      var ctx = c.getContext('2d'); ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(img, 0, 0, w, h);
+      res(c.toDataURL('image/webp', q));
+    };
+    img.src = dataURL;
+  });
+}
+
+async function uploadToStorage(dataURL, idx) {
+  var res = await fetch(dataURL);
+  var blob = await res.blob();
+  var fileName = 'memory-' + Date.now() + '-' + idx + '.webp';
+  var uploadRes = await fetch(SUPA_URL + '/storage/v1/object/' + BUCKET + '/' + fileName, {
+    method: 'POST',
+    headers: {'apikey': SUPA_KEY,'Authorization': 'Bearer ' + SUPA_KEY,'Content-Type': 'image/webp','x-upsert': 'true'},
+    body: blob
+  });
+  if (!uploadRes.ok) { var err = await uploadRes.text(); throw new Error('Photo upload failed: ' + err); }
+  return SUPA_URL + '/storage/v1/object/public/' + BUCKET + '/' + fileName;
+}
+
+function addBalloon() {
+  var idx = bCount++;
+  balloons.push({ msg: '', photoUrl: null });
+  var item = document.createElement('div');
+  item.className = 'b-item'; item.id = 'bi' + idx;
+  item.innerHTML =
+    '<div class="b-item-header">' +
+      '<div class="b-num">' + (idx+1) + '</div>' +
+      '<div class="b-item-title">Memory ' + (idx+1) + '</div>' +
+      '<button class="b-del" onclick="removeBalloon(' + idx + ')">✕</button>' +
+    '</div>' +
+    '<div class="b-row">' +
+      '<div>' +
+        '<label class="lbl">Photo (optional)</label>' +
+        '<div class="photo-slot" id="ps' + idx + '">' +
+          '<input type="file" accept="image/*" onchange="loadPic(' + idx + ',this)"/>' +
+          '<img id="pi' + idx + '" src="" alt=""/>' +
+          '<div class="photo-icon">＋<small>Add photo</small></div>' +
+          '<div class="photo-uploading" id="pu' + idx + '"><div class="upload-spinner"></div><span>Uploading…</span></div>' +
+          '<button class="del-x" type="button" onclick="removePic(' + idx + ',event)">✕</button>' +
+        '</div>' +
+      '</div>' +
+      '<div style="display:flex;flex-direction:column;">' +
+        '<label class="lbl">Message *</label>' +
+        '<textarea id="bm' + idx + '" placeholder="e.g. Thank you for teaching me to drive" style="flex:1;min-height:80px;" oninput="updateMsg(' + idx + ',this.value)"></textarea>' +
+      '</div>' +
+    '</div>';
+  document.getElementById('balloonList').appendChild(item);
+}
+
+function removeBalloon(idx) {
+  var el = document.getElementById('bi' + idx); if(el) el.remove();
+  if(balloons[idx]) balloons[idx] = null;
+}
+
+function loadPic(idx, inp) {
+  if(!inp.files || !inp.files[0]) return;
+  var slot = document.getElementById('ps' + idx); slot.classList.add('uploading');
+  var r = new FileReader();
+  r.onload = async function(e) {
+    try {
+      var compressed = await compress(e.target.result, 600, 0.70);
+      var url = await uploadToStorage(compressed, idx);
+      balloons[idx].photoUrl = url;
+      document.getElementById('pi' + idx).src = url;
+      slot.classList.remove('uploading'); slot.classList.add('filled');
+    } catch(err) { slot.classList.remove('uploading'); showErr('Photo upload failed. Check your internet and try again.'); console.error(err); }
+  };
+  r.readAsDataURL(inp.files[0]);
+}
+
+function removePic(idx, e) {
+  e.stopPropagation(); balloons[idx].photoUrl = null;
+  document.getElementById('pi' + idx).src = '';
+  document.getElementById('ps' + idx).classList.remove('filled');
+  var inp = document.querySelector('#ps' + idx + ' input[type=file]'); if(inp) inp.value = '';
+}
+function updateMsg(idx, val) { if(balloons[idx]) balloons[idx].msg = val; }
+
+addBalloon(); addBalloon(); addBalloon();
+
+function gatherData() {
+  var herName = document.getElementById('herName').value.trim();
+  var yourName = document.getElementById('yourName').value.trim();
+  var msg = document.getElementById('msg').value.trim();
+  if(!herName) { showErr('Please enter his name'); return null; }
+  var active = balloons.filter(function(b){ return b && b.msg.trim(); });
+  if(!active.length) { showErr('Add at least one memory'); return null; }
+  var uploading = document.querySelectorAll('.photo-slot.uploading');
+  if(uploading.length) { showErr('Please wait for photos to finish uploading'); return null; }
+  return { n: herName, f: yourName, m: msg, b: active };
+}
+
+async function saveToSupabase(payload) {
+  var res = await fetch(SUPA_URL + '/rest/v1/mday', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json','apikey': SUPA_KEY,'Authorization': 'Bearer ' + SUPA_KEY,'Prefer': 'return=representation'},
+    body: JSON.stringify({ data: JSON.stringify(payload) })
+  });
+  if(!res.ok) throw new Error(await res.text());
+  var j = await res.json(); return j[0].id;
+}
+
+function viewURL(id) { return SITE_URL + 'view.html?id=' + id; }
+
+async function doPreview() {
+  var d = gatherData(); if(!d) return;
+  d.isPreview = true;
+  try {
+    var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(d))));
+    var url = SITE_URL + 'view.html?preview=' + encoded;
+    var a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  } catch(e) { showErr('Failed: ' + e.message); }
+}
+
+async function doPay() {
+  var d = gatherData(); if (!d) return;
+
+  var finalAmount = appliedCoupon ? appliedCoupon.amount : 7900;
+
+  // Free coupon — skip Razorpay entirely
+  if (finalAmount === 0) {
+    showLoading('Saving his tribute…', 'Almost there');
+    try {
+      var id = await saveToSupabase(d);
+      hideLoading();
+      document.getElementById('paidBanner').classList.add('show');
+      showResult(id);
+      document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch(e) { hideLoading(); showErr('Failed: ' + e.message); }
+    return;
+  }
+
+  showLoading('Saving his tribute…', 'Almost there');
+  try {
+    var id = await saveToSupabase(d);
+    hideLoading();
+    var options = {
+      key: RZP_KEY,
+      amount: finalAmount,
+      currency: 'INR',
+      name: 'Lumina',
+      description: "Father's Day Tribute Link",
+      image: 'https://sorry-rxw.pages.dev/favicon.ico',
+      handler: async function (response) {
+        await fetch(SUPA_URL + '/rest/v1/mday?id=eq.' + id, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPA_KEY,
+            'Authorization': 'Bearer ' + SUPA_KEY
+          },
+          body: JSON.stringify({ paid: true })
+        });
+        document.getElementById('paidBanner').classList.add('show');
+        showResult(id);
+        document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      },
+      prefill: { name: '', email: '', contact: '' },
+      theme: { color: '#e8a23b' },
+      modal: { ondismiss: function () {} }
+    };
+    var rzp = new Razorpay(options);
+    rzp.on('payment.failed', function (response) { showErr('Payment failed: ' + response.error.description); });
+    rzp.open();
+  } catch (e) { hideLoading(); showErr('Failed to save: ' + e.message); }
+}
+
+function showResult(id) {
+  var url = viewURL(id); window._url = url;
+  document.getElementById('openLinkInline').href = url;
+  document.getElementById('openLinkInline').textContent = url;
+  document.getElementById('openLink').href = url;
+  document.getElementById('waLink').href = 'https://wa.me/?text=' + encodeURIComponent("Made something for you, Dad. Open this: " + url);
+  var box = document.getElementById('resultBox'); box.style.display = 'block';
+  box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function showLoading(t, s) {
+  document.getElementById('loadingTitle').textContent = t;
+  document.getElementById('loadingSub').textContent = s;
+  document.getElementById('loadingOverlay').classList.add('show');
+}
+function hideLoading() { document.getElementById('loadingOverlay').classList.remove('show'); }
+function showErr(m) {
+  var b = document.getElementById('errBox'); b.textContent = '⚠ ' + m; b.style.display = 'block';
+  setTimeout(function(){ b.style.display = 'none'; }, 9000);
+}
+
+function copyIt() {
+  var url = window._url || document.getElementById('openLink').href;
+  var btn = document.getElementById('copyBtn');
+  if(navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function(){ btn.textContent = 'Copied ✓'; setTimeout(function(){ btn.textContent = 'Copy Link'; }, 2500); });
+  } else {
+    var ta = document.createElement('textarea'); ta.value = url; ta.style.cssText = 'position:fixed;opacity:0;'; document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    try { document.execCommand('copy'); btn.textContent = 'Copied ✓'; setTimeout(function(){ btn.textContent = 'Copy Link'; }, 2500); } catch(e){}
+    document.body.removeChild(ta);
+  }
+}
+
+function resetAll() {
+  document.getElementById('herName').value = ''; document.getElementById('yourName').value = '';
+  document.getElementById('msg').value = ''; document.getElementById('balloonList').innerHTML = '';
+  document.getElementById('resultBox').style.display = 'none';
+  document.getElementById('paidBanner').classList.remove('show');
+  document.getElementById('couponInput').value = '';
+  document.getElementById('couponMsg').style.display = 'none';
+  document.getElementById('priceLabel').textContent = '79';
+  document.getElementById('displayPrice').textContent = '79';
+  appliedCoupon = null;
+  balloons = []; bCount = 0;
+  addBalloon(); addBalloon(); addBalloon();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+window.addEventListener('load', function() {
+  var params = new URLSearchParams(window.location.search);
+  var prefillId = params.get('prefill');
+  var dataParam = params.get('data');
+  window.history.replaceState({}, '', window.location.pathname);
+  if (dataParam) {
+    // came from a preview link — decode and fill directly, no DB fetch needed
+    try {
+      var d = JSON.parse(decodeURIComponent(escape(atob(dataParam))));
+      prefillFromData(d);
+    } catch(e) { console.error('data prefill failed', e); }
+  } else if (prefillId) {
+    prefillForm(prefillId);
+  }
+});
+
+async function prefillForm(id) {
+  try {
+    var res = await fetch(SUPA_URL + '/rest/v1/mday?id=eq.' + id + '&select=data', {
+      headers: { 'apikey': SUPA_KEY, 'Authorization': 'Bearer ' + SUPA_KEY }
+    });
+    var j = await res.json(); if(!j || !j[0] || !j[0].data) return;
+    var d = JSON.parse(j[0].data);
+    if(d.n) document.getElementById('herName').value = d.n;
+    if(d.f) document.getElementById('yourName').value = d.f;
+    if(d.m) document.getElementById('msg').value = d.m;
+    if(d.b && d.b.length) {
+      document.getElementById('balloonList').innerHTML = ''; balloons = []; bCount = 0;
+      d.b.forEach(function(b, i) {
+        addBalloon();
+        if(b.msg) { balloons[i].msg = b.msg; var ta = document.getElementById('bm'+i); if(ta) ta.value = b.msg; }
+        if(b.photoUrl) { balloons[i].photoUrl = b.photoUrl; document.getElementById('pi'+i).src = b.photoUrl; document.getElementById('ps'+i).classList.add('filled'); }
+      });
+    }
+  } catch(e) { console.error('prefill failed', e); }
+}
+function prefillFromData(d) {
+  if (d.n) document.getElementById('herName').value = d.n;
+  if (d.f) document.getElementById('yourName').value = d.f;
+  if (d.m) document.getElementById('msg').value = d.m;
+  if (d.b && d.b.length) {
+    document.getElementById('balloonList').innerHTML = '';
+    balloons = []; bCount = 0;
+    d.b.forEach(function(b, i) {
+      addBalloon();
+      if (b.msg) {
+        balloons[i].msg = b.msg;
+        var ta = document.getElementById('bm' + i);
+        if (ta) ta.value = b.msg;
+      }
+      if (b.photoUrl) {
+        balloons[i].photoUrl = b.photoUrl;
+        document.getElementById('pi' + i).src = b.photoUrl;
+        document.getElementById('ps' + i).classList.add('filled');
+      }
+    });
+  }
+}
+</script>
+</body>
+</html>
