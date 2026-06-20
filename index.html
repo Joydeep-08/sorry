@@ -449,6 +449,22 @@ async function doPay() {
     showLoading('Saving his tribute…', 'Almost there');
     try {
       var id = await saveToSupabase(d);
+      var patchOk = false;
+      for (var attempt = 0; attempt < 4 && !patchOk; attempt++) {
+        try {
+          var r = await fetch(SUPA_URL + '/rest/v1/mday?id=eq.' + id, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json', 'apikey': SUPA_KEY, 'Authorization': 'Bearer ' + SUPA_KEY },
+            body: JSON.stringify({ paid: true })
+          });
+          if (r.ok) patchOk = true;
+        } catch (e) {}
+        if (!patchOk) await new Promise(function(res){ setTimeout(res, 800 * (attempt + 1)); });
+      }
+      if (!patchOk) {
+        console.error('PAID-FLAG-FAILED id=' + id);
+        showErr("Saved but having trouble confirming — please screenshot this and send me your link: " + viewURL(id));
+      }
       hideLoading();
       document.getElementById('paidBanner').classList.add('show');
       showResult(id);
@@ -469,19 +485,27 @@ async function doPay() {
       description: "Father's Day Tribute Link",
       image: 'https://sorry-rxw.pages.dev/favicon.ico',
       handler: async function (response) {
-        await fetch(SUPA_URL + '/rest/v1/mday?id=eq.' + id, {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json',
-            'apikey': SUPA_KEY,
-            'Authorization': 'Bearer ' + SUPA_KEY
-          },
-          body: JSON.stringify({ paid: true })
-        });
-        document.getElementById('paidBanner').classList.add('show');
-        showResult(id);
-        document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
-      },
+  var patchOk = false;
+  for (var attempt = 0; attempt < 4 && !patchOk; attempt++) {
+    try {
+      var r = await fetch(SUPA_URL + '/rest/v1/mday?id=eq.' + id, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json', 'apikey': SUPA_KEY, 'Authorization': 'Bearer ' + SUPA_KEY },
+        body: JSON.stringify({ paid: true })
+      });
+      if (r.ok) patchOk = true;
+    } catch (e) {}
+    if (!patchOk) await new Promise(function(res){ setTimeout(res, 800 * (attempt + 1)); });
+  }
+  if (!patchOk) {
+    // don't silently lose it — log it so you can fix manually
+    console.error('PAID-FLAG-FAILED id=' + id);
+    showErr("Payment went through but we're having trouble saving that — please screenshot this and message me your link: " + viewURL(id));
+  }
+  document.getElementById('paidBanner').classList.add('show');
+  showResult(id);
+  document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
+},
       prefill: { name: '', email: '', contact: '' },
       theme: { color: '#e8a23b' },
       modal: { ondismiss: function () {} }
