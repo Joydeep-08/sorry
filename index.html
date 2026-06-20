@@ -266,8 +266,8 @@ var SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJ
 var RZP_KEY = 'rzp_live_SmizRaPApu81ZS';
 
 
-// NOTE: update this once you deploy to your Father's Day Cloudflare Pages project
-var SITE_URL = 'https://fathersday-c4s.pages.dev/';
+// live domain for this Father's Day deployment
+var SITE_URL = 'https://sorry-rxw.pages.dev/';
 var BUCKET = 'photos';
 
 // ── Coupon codes ──
@@ -467,7 +467,7 @@ async function doPay() {
       currency: 'INR',
       name: 'Lumina',
       description: "Father's Day Tribute Link",
-      image: 'https://fathersday-c4s.pages.dev/favicon.ico',
+      image: 'https://sorry-rxw.pages.dev/favicon.ico',
       handler: async function (response) {
         await fetch(SUPA_URL + '/rest/v1/mday?id=eq.' + id, {
           method: 'PATCH',
