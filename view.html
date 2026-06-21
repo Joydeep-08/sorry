@@ -444,18 +444,27 @@ function buildName(n) {
   });
 }
 
+/* Vibrant, contrasting balloon palette — each color reads clearly against
+   the warm cream/amber background instead of blending into it. */
 var pals = [
-  {b:'#5b7a4f',s:'#8fb578',d:'#34492a'},{b:'#c9852f',s:'#f0ad5e',d:'#8a5418'},
-  {b:'#a13d3d',s:'#cf6b62',d:'#6b1f1f'},{b:'#2f6b6b',s:'#5fa3a0',d:'#1a3e3e'},
-  {b:'#b5872e',s:'#e0b35e',d:'#7a5618'},{b:'#6b4f8a',s:'#9b7eb8',d:'#3e2c54'},
-  {b:'#3f7a3a',s:'#74b06a',d:'#234a20'},{b:'#cf5b3a',s:'#f08a64',d:'#8a3318'},
-  {b:'#3a6b9b',s:'#6a9bc8',d:'#1f3e5c'},{b:'#a87a2a',s:'#d4a85c',d:'#6b4d16'},
+  {b:'#d94f4f',s:'#f08a8a',d:'#8a1f1f'}, // crimson red
+  {b:'#e8b23a',s:'#f5d27a',d:'#9c7416'}, // golden yellow
+  {b:'#3e9e6f',s:'#7ecba0',d:'#1f5c3e'}, // emerald green
+  {b:'#3a6fc4',s:'#7aa3e0',d:'#1f3e7a'}, // royal blue
+  {b:'#c4428a',s:'#e07ab5',d:'#7a1f56'}, // berry magenta
+  {b:'#e8742e',s:'#f5a868',d:'#9c4716'}, // tangerine orange
+  {b:'#2e9e9e',s:'#6ecbcb',d:'#16605f'}, // teal
+  {b:'#7a4fc4',s:'#a886e0',d:'#46247a'}, // violet
+  {b:'#e0467a',s:'#f084ab',d:'#8a1f4a'}, // hot pink
+  {b:'#3aa8d4',s:'#7accea',d:'#1f6285'}, // sky blue
 ];
 var gradients=['linear-gradient(155deg,#5b7a4f,#1f2b18)','linear-gradient(155deg,#a13d3d,#3a1212)','linear-gradient(155deg,#2f6b6b,#15302f)','linear-gradient(155deg,#b5872e,#4a3410)','linear-gradient(155deg,#6b4f8a,#2a1e3a)'];
 var tilts=[-3,2.5,-4,3,-2,4.5,-1.5,3,-3.5,2];
 
+/* unique id per call so the radial gradient never collides across balloons */
+var bsvgCounter = 0;
 function bsvg(p){
-  var id='g'+p.b.slice(1);
+  var id='gb'+(bsvgCounter++);
   return '<defs><radialGradient id="'+id+'" cx="38%" cy="30%" r="75%"><stop offset="0%" stop-color="'+p.s+'"/><stop offset="60%" stop-color="'+p.b+'"/><stop offset="100%" stop-color="'+p.d+'"/></radialGradient></defs><ellipse cx="50" cy="52" rx="38" ry="44" fill="url(#'+id+')" stroke="'+p.d+'" stroke-width="2.5"/><ellipse cx="35" cy="34" rx="11" ry="8" fill="rgba(255,255,255,.55)" transform="rotate(-25 35 34)"/><ellipse cx="40" cy="28" rx="5" ry="3.5" fill="rgba(255,255,255,.65)" transform="rotate(-20 40 28)"/><polygon points="50,93 44,101 56,101" fill="'+p.d+'"/><line x1="50" y1="101" x2="50" y2="128" stroke="rgba(43,36,16,.55)" stroke-width="1.4" stroke-linecap="round"/>';
 }
 
