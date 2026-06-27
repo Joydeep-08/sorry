@@ -3,27 +3,28 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>For Dad — A Father's Day Tribute</title>
+<title>Birthday Surprise — Make Something Unforgettable</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --ink:#2b2410;
-  --ink2:#3c3318;
-  --navy:#5a5226;
-  --brass:#8a9b5e;
-  --brass-light:#b8c98a;
-  --burgundy:#a87a3a;
-  --olive:#7d8a4a;
-  --rust:#c9a227;
-  --ivory:#fbf6e9;
-  --ivory-dim:rgba(60,51,24,.75);
-  --ivory-faint:rgba(60,51,24,.45);
-  --glass:rgba(255,255,255,.55);
-  --glass-strong:rgba(255,255,255,.75);
-  --border:rgba(138,154,94,.4);
-  --border-soft:rgba(60,51,24,.12);
+  --ink:#1a0a2e;
+  --ink2:#2d1154;
+  --plum:#5c2d8a;
+  --violet:#7c3fbf;
+  --violet-light:#b07ee0;
+  --gold:#e8a020;
+  --gold-light:#f5cc6a;
+  --rose:#d94f8a;
+  --teal:#2ab5a0;
+  --ivory:#fdf8ff;
+  --ivory-dim:rgba(44,17,84,.72);
+  --ivory-faint:rgba(44,17,84,.42);
+  --glass:rgba(255,255,255,.52);
+  --glass-strong:rgba(255,255,255,.74);
+  --border:rgba(124,63,191,.35);
+  --border-soft:rgba(44,17,84,.11);
 }
 body{
   font-family:'Outfit',sans-serif;
@@ -31,136 +32,142 @@ body{
   min-height:100vh;
   overflow-x:hidden;
   position:relative;
-  background:linear-gradient(135deg,#f3ecd6 0%,#ece2c4 35%,#f6f0dd 68%,#eee4c8 100%);
+  background:linear-gradient(140deg,#f5eeff 0%,#ffe8f5 30%,#fff3e0 60%,#e8f5ff 100%);
   background-size:400% 400%;
-  animation:gradientShift 20s ease infinite;
+  animation:gradShift 22s ease infinite;
 }
 body::before{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background:
-    radial-gradient(ellipse 760px 560px at 12% -4%,rgba(184,201,138,.25),transparent 60%),
-    radial-gradient(ellipse 640px 480px at 104% 104%,rgba(125,138,74,.18),transparent 60%);
+    radial-gradient(ellipse 700px 500px at 5% -8%,rgba(176,126,224,.22),transparent 65%),
+    radial-gradient(ellipse 600px 450px at 100% 105%,rgba(217,79,138,.16),transparent 65%),
+    radial-gradient(ellipse 500px 400px at 55% 50%,rgba(232,160,32,.1),transparent 70%);
 }
-@keyframes gradientShift{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+@keyframes gradShift{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
 
-.hearts-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
-.fheart{position:absolute;animation:floatUp linear infinite;opacity:0;color:var(--brass);}
-@keyframes floatUp{
-  0%{transform:translateY(110vh) rotate(0deg);opacity:0;}
-  10%{opacity:.45;}
-  90%{opacity:.25;}
-  100%{transform:translateY(-120px) rotate(180deg);opacity:0;}
-}
+/* Floating confetti bg */
+.confetti-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.fc{position:absolute;border-radius:2px;animation:fcFloat linear infinite;opacity:0;}
+@keyframes fcFloat{0%{transform:translateY(110vh) rotate(0deg);opacity:0;}10%{opacity:.55;}90%{opacity:.25;}100%{transform:translateY(-80px) rotate(360deg);opacity:0;}}
 
-header{position:relative;z-index:2;text-align:center;padding:56px 20px 22px;}
-.badge{display:inline-flex;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--olive);background:rgba(138,154,94,.1);border:1px solid var(--border);padding:9px 20px;border-radius:100px;margin-bottom:24px;}
-h1{font-family:'Fraunces',serif;font-size:clamp(40px,9vw,76px);font-weight:600;line-height:1.02;letter-spacing:-1px;color:var(--ink);}
-h1 em{font-style:italic;font-weight:500;color:var(--olive);text-shadow:0 0 40px rgba(138,154,94,.2);}
+header{position:relative;z-index:2;text-align:center;padding:54px 20px 20px;}
+.badge{display:inline-flex;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--violet);background:rgba(124,63,191,.1);border:1px solid var(--border);padding:9px 20px;border-radius:100px;margin-bottom:24px;}
+h1{font-family:'Fraunces',serif;font-size:clamp(38px,8.5vw,72px);font-weight:600;line-height:1.02;letter-spacing:-1px;color:var(--ink);}
+h1 em{font-style:italic;font-weight:500;color:var(--violet);text-shadow:0 0 44px rgba(124,63,191,.22);}
 .tagline{margin-top:14px;font-size:14px;color:var(--ivory-dim);font-weight:300;max-width:420px;margin-left:auto;margin-right:auto;}
 
 .wrap{position:relative;z-index:2;max-width:700px;margin:0 auto 100px;padding:0 18px;}
 
-.card{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--border-soft);border-radius:18px;padding:36px;margin-bottom:20px;box-shadow:0 18px 50px rgba(60,51,24,.1);}
-.step-badge{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--brass),var(--rust));color:var(--ivory);font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 4px 14px rgba(138,154,94,.35);}
+.card{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--border-soft);border-radius:18px;padding:36px;margin-bottom:20px;box-shadow:0 18px 50px rgba(44,17,84,.1);}
+.step-badge{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--rose));color:var(--ivory);font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 4px 14px rgba(124,63,191,.35);}
 .card-title{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin-bottom:4px;color:var(--ink);}
 .card-sub{font-size:12px;color:var(--ivory-dim);margin-bottom:26px;}
 
-.lbl{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(60,51,24,.55);margin-bottom:9px;}
+.lbl{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(44,17,84,.52);margin-bottom:9px;}
 input[type=text],textarea{
   width:100%;padding:14px 18px;font-family:'Outfit',sans-serif;font-size:14px;color:var(--ink);
   background:var(--glass-strong);border:1px solid var(--border-soft);border-radius:12px;outline:none;
   transition:border-color .2s,box-shadow .2s;resize:none;
 }
-input[type=text]::placeholder,textarea::placeholder{color:rgba(60,51,24,.35);}
-input[type=text]:focus,textarea:focus{border-color:var(--brass);box-shadow:0 0 0 3px rgba(138,154,94,.15);}
+input[type=text]::placeholder,textarea::placeholder{color:rgba(44,17,84,.32);}
+input[type=text]:focus,textarea:focus{border-color:var(--violet);box-shadow:0 0 0 3px rgba(124,63,191,.14);}
 textarea{height:90px;line-height:1.6;}
 .f{margin-bottom:22px;}
 
+/* Tone selector */
+.tone-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+.tone-btn{padding:9px 18px;border-radius:100px;border:1.5px solid var(--border-soft);background:var(--glass-strong);color:var(--ivory-dim);font-family:'Outfit',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .2s;}
+.tone-btn:hover{border-color:var(--violet);color:var(--ink);}
+.tone-btn.sel{background:rgba(124,63,191,.14);border-color:var(--violet);color:var(--ink);}
+.gen-btn{width:100%;padding:13px;background:linear-gradient(135deg,rgba(124,63,191,.15),rgba(217,79,138,.12));border:1.5px solid var(--border);border-radius:12px;color:var(--plum);font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px;}
+.gen-btn:hover{background:rgba(124,63,191,.22);border-color:var(--violet);}
+.gen-btn:disabled{opacity:.5;cursor:not-allowed;}
+.gen-spinner{width:14px;height:14px;border:2px solid rgba(124,63,191,.2);border-top-color:var(--violet);border-radius:50%;animation:spin .7s linear infinite;display:none;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
 .balloon-list{display:flex;flex-direction:column;gap:14px;margin-bottom:16px;}
-.b-item{background:rgba(60,51,24,.03);border:1px solid var(--border-soft);border-radius:16px;padding:20px;transition:border-color .2s;}
+.b-item{background:rgba(44,17,84,.03);border:1px solid var(--border-soft);border-radius:16px;padding:20px;transition:border-color .2s;}
 .b-item:hover{border-color:var(--border);}
 .b-item-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
-.b-num{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--brass),var(--rust));color:var(--ivory);font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.b-num{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--rose));color:var(--ivory);font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .b-item-title{font-weight:500;font-size:14px;flex:1;color:var(--ink);}
-.b-del{background:none;border:none;cursor:pointer;color:rgba(60,51,24,.5);font-size:16px;padding:4px;border-radius:50%;transition:background .2s,color .2s;}
-.b-del:hover{background:rgba(168,122,58,.25);color:var(--ink);}
+.b-del{background:none;border:none;cursor:pointer;color:rgba(44,17,84,.45);font-size:16px;padding:4px;border-radius:50%;transition:background .2s,color .2s;}
+.b-del:hover{background:rgba(217,79,138,.2);color:var(--ink);}
 .b-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 @media(max-width:500px){.b-row{grid-template-columns:1fr;}}
 
-.photo-slot{aspect-ratio:1;border:1.5px dashed var(--border-soft);border-radius:10px;position:relative;overflow:hidden;background:rgba(60,51,24,.03);transition:border-color .2s;cursor:pointer;}
-.photo-slot:hover{border-color:var(--brass);}
+.photo-slot{aspect-ratio:1;border:1.5px dashed var(--border-soft);border-radius:10px;position:relative;overflow:hidden;background:rgba(44,17,84,.03);transition:border-color .2s;cursor:pointer;}
+.photo-slot:hover{border-color:var(--violet);}
 .photo-slot input[type=file]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;z-index:3;}
 .photo-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;z-index:1;}
 .photo-slot.filled img{display:block;}
-.photo-icon{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:20px;color:rgba(60,51,24,.4);pointer-events:none;}
-.photo-icon small{font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(60,51,24,.4);margin-top:5px;letter-spacing:1px;}
+.photo-icon{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:20px;color:rgba(44,17,84,.38);pointer-events:none;}
+.photo-icon small{font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(44,17,84,.38);margin-top:5px;letter-spacing:1px;}
 .photo-slot.filled .photo-icon{display:none;}
-.photo-uploading{position:absolute;inset:0;background:rgba(251,246,233,.8);display:none;flex-direction:column;align-items:center;justify-content:center;gap:6px;z-index:5;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink);}
+.photo-uploading{position:absolute;inset:0;background:rgba(253,248,255,.82);display:none;flex-direction:column;align-items:center;justify-content:center;gap:6px;z-index:5;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink);}
 .photo-slot.uploading .photo-uploading{display:flex;}
-.upload-spinner{width:20px;height:20px;border:2px solid rgba(60,51,24,.2);border-top-color:var(--olive);border-radius:50%;animation:spin .7s linear infinite;}
-@keyframes spin{to{transform:rotate(360deg);}}
-.del-x{position:absolute;top:5px;right:5px;width:20px;height:20px;border-radius:50%;background:rgba(168,122,58,.92);border:none;font-size:10px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:4;color:#fff;font-weight:700;padding:0;}
+.upload-spinner{width:20px;height:20px;border:2px solid rgba(44,17,84,.18);border-top-color:var(--violet);border-radius:50%;animation:spin .7s linear infinite;}
+.del-x{position:absolute;top:5px;right:5px;width:20px;height:20px;border-radius:50%;background:rgba(217,79,138,.9);border:none;font-size:10px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:4;color:#fff;font-weight:700;padding:0;}
 .photo-slot.filled .del-x{display:flex;}
 
-.add-balloon-btn{width:100%;padding:16px;background:rgba(60,51,24,.03);border:1.5px dashed var(--border-soft);border-radius:14px;color:var(--ivory-dim);font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
-.add-balloon-btn:hover{background:var(--glass-strong);border-color:var(--brass);color:var(--ink);}
+.add-balloon-btn{width:100%;padding:16px;background:rgba(44,17,84,.03);border:1.5px dashed var(--border-soft);border-radius:14px;color:var(--ivory-dim);font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.add-balloon-btn:hover{background:var(--glass-strong);border-color:var(--violet);color:var(--ink);}
 
-.hint-box{background:rgba(138,154,94,.1);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:18px;font-size:12.5px;color:var(--ivory-dim);line-height:1.6;}
-.hint-box strong{font-weight:600;color:var(--olive);}
+.hint-box{background:rgba(124,63,191,.08);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:18px;font-size:12.5px;color:var(--ivory-dim);line-height:1.6;}
+.hint-box strong{font-weight:600;color:var(--violet);}
 
 .price-badge{background:var(--glass-strong);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px 24px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .price-left{display:flex;flex-direction:column;gap:4px;}
-.price-label{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(60,51,24,.55);}
-.price-amount{font-family:'Fraunces',serif;font-size:32px;font-weight:600;color:var(--olive);}
+.price-label{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(44,17,84,.52);}
+.price-amount{font-family:'Fraunces',serif;font-size:32px;font-weight:600;color:var(--violet);}
 .price-amount span{font-size:16px;font-weight:400;}
 .price-features{display:flex;flex-direction:column;gap:5px;}
 .price-feat{font-size:11.5px;color:var(--ivory-dim);display:flex;align-items:center;gap:7px;}
-.price-feat::before{content:'✓';color:var(--olive);font-weight:700;}
+.price-feat::before{content:'✓';color:var(--violet);font-weight:700;}
 
-/* Coupon */
 .coupon-row{display:flex;gap:8px;margin-bottom:12px;}
 .coupon-row input{flex:1;}
 .coupon-apply-btn{padding:14px 20px;background:var(--glass-strong);border:1px solid var(--border-soft);border-radius:12px;color:var(--ink);font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;transition:border-color .2s,background .2s;}
-.coupon-apply-btn:hover{background:rgba(60,51,24,.08);border-color:var(--brass);}
+.coupon-apply-btn:hover{background:rgba(44,17,84,.08);border-color:var(--violet);}
 .coupon-msg{display:none;font-size:13px;margin-bottom:12px;padding:10px 16px;border-radius:10px;}
-.coupon-msg.ok{background:rgba(125,138,74,.18);border:1px solid rgba(125,138,74,.4);}
-.coupon-msg.fail{background:rgba(168,122,58,.2);border:1px solid rgba(168,122,58,.4);}
+.coupon-msg.ok{background:rgba(42,181,160,.15);border:1px solid rgba(42,181,160,.4);}
+.coupon-msg.fail{background:rgba(217,79,138,.15);border:1px solid rgba(217,79,138,.35);}
 
 .free-prev-btn{width:100%;padding:16px;background:transparent;border:1.5px solid var(--ivory-faint);border-radius:14px;font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:500;color:var(--ivory-dim);cursor:pointer;transition:all .2s;margin-bottom:12px;}
 .free-prev-btn:hover{background:var(--glass-strong);border-color:var(--ivory-dim);color:var(--ink);}
 .pay-btn{
   width:100%;padding:19px;
-  background:linear-gradient(45deg,var(--brass),var(--brass-light),var(--olive));
+  background:linear-gradient(45deg,var(--violet),var(--rose),var(--gold));
   background-size:200% 200%;
-  color:var(--ink);border:none;border-radius:14px;font-family:'Outfit',sans-serif;font-size:14.5px;font-weight:600;letter-spacing:.2px;
-  cursor:pointer;box-shadow:0 10px 32px rgba(138,154,94,.3);transition:all .25s;display:flex;align-items:center;justify-content:center;gap:10px;
+  color:#fff;border:none;border-radius:14px;font-family:'Outfit',sans-serif;font-size:14.5px;font-weight:600;letter-spacing:.2px;
+  cursor:pointer;box-shadow:0 10px 32px rgba(124,63,191,.35);transition:all .25s;display:flex;align-items:center;justify-content:center;gap:10px;
   animation:btnGlow 6s ease infinite;
 }
 @keyframes btnGlow{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
-.pay-btn:hover{transform:translateY(-2px);box-shadow:0 16px 44px rgba(138,154,94,.45);}
+.pay-btn:hover{transform:translateY(-2px);box-shadow:0 16px 44px rgba(124,63,191,.45);}
 .pay-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
 
-.err{display:none;background:rgba(168,122,58,.18);border:1px solid rgba(168,122,58,.4);border-radius:12px;padding:12px 16px;color:var(--ink);font-size:13px;margin-bottom:14px;}
+.err{display:none;background:rgba(217,79,138,.14);border:1px solid rgba(217,79,138,.35);border-radius:12px;padding:12px 16px;color:var(--ink);font-size:13px;margin-bottom:14px;}
 
-.result{display:none;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--border-soft);border-radius:18px;padding:40px;text-align:center;box-shadow:0 18px 50px rgba(60,51,24,.1);margin-top:20px;}
-.result-icon{font-family:'Fraunces',serif;font-style:italic;font-size:44px;color:var(--olive);margin-bottom:14px;}
+.result{display:none;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--border-soft);border-radius:18px;padding:40px;text-align:center;box-shadow:0 18px 50px rgba(44,17,84,.1);margin-top:20px;}
+.result-icon{font-family:'Fraunces',serif;font-style:italic;font-size:44px;color:var(--violet);margin-bottom:14px;}
 .result h3{font-family:'Fraunces',serif;font-size:28px;font-weight:600;margin-bottom:8px;color:var(--ink);}
 .result p{color:var(--ivory-dim);font-size:13px;margin-bottom:24px;}
 .link-box{display:flex;gap:8px;align-items:center;background:var(--glass-strong);border:1px solid var(--border-soft);border-radius:12px;padding:12px 16px;margin-bottom:16px;}
-.copy-btn{background:linear-gradient(135deg,var(--brass),var(--brass-light));color:var(--ink);border:none;border-radius:8px;padding:8px 16px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap;}
-.open-btn{display:inline-block;padding:15px 36px;background:linear-gradient(135deg,var(--brass),var(--olive));color:var(--ivory);font-weight:600;border-radius:100px;font-family:'Outfit',sans-serif;font-size:14px;text-decoration:none;box-shadow:0 8px 26px rgba(138,154,94,.3);margin-bottom:12px;}
+.copy-btn{background:linear-gradient(135deg,var(--violet),var(--rose));color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap;}
+.open-btn{display:inline-block;padding:15px 36px;background:linear-gradient(135deg,var(--violet),var(--plum));color:#fff;font-weight:600;border-radius:100px;font-family:'Outfit',sans-serif;font-size:14px;text-decoration:none;box-shadow:0 8px 26px rgba(124,63,191,.32);margin-bottom:12px;}
 .reset-btn{background:transparent;color:var(--ivory-dim);border:1px solid var(--border-soft);border-radius:12px;padding:12px 24px;font-family:'Outfit',sans-serif;font-size:13px;cursor:pointer;margin-top:6px;display:block;width:100%;}
-.paid-banner{background:rgba(125,138,74,.16);border:1px solid rgba(125,138,74,.4);border-radius:14px;padding:16px 20px;margin-bottom:20px;display:none;align-items:center;gap:12px;font-size:13px;color:var(--ink);}
+.paid-banner{background:rgba(42,181,160,.14);border:1px solid rgba(42,181,160,.4);border-radius:14px;padding:16px 20px;margin-bottom:20px;display:none;align-items:center;gap:12px;font-size:13px;color:var(--ink);}
 .paid-banner.show{display:flex;}
 
-.loading-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(251,246,233,.96);backdrop-filter:blur(10px);flex-direction:column;align-items:center;justify-content:center;gap:20px;}
+.loading-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(253,248,255,.96);backdrop-filter:blur(10px);flex-direction:column;align-items:center;justify-content:center;gap:20px;}
 .loading-overlay.show{display:flex;}
-.loading-orb{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,var(--brass),var(--olive));display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-style:italic;font-size:26px;color:var(--ivory);box-shadow:0 14px 40px rgba(138,154,94,.4);animation:pulse 1.6s ease-in-out infinite;}
+.loading-orb{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--rose));display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;box-shadow:0 14px 40px rgba(124,63,191,.4);animation:pulse 1.6s ease-in-out infinite;}
 @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
 .loading-title{font-family:'Fraunces',serif;font-size:21px;font-weight:600;color:var(--ink);}
 .loading-sub{font-size:13px;color:var(--ivory-dim);}
 .loading-dots{display:flex;gap:6px;}
-.loading-dots span{width:7px;height:7px;border-radius:50%;background:var(--olive);animation:dot 1.2s ease-in-out infinite;}
+.loading-dots span{width:7px;height:7px;border-radius:50%;background:var(--violet);animation:dot 1.2s ease-in-out infinite;}
 .loading-dots span:nth-child(2){animation-delay:.2s;}
 .loading-dots span:nth-child(3){animation-delay:.4s;}
 @keyframes dot{0%,80%,100%{transform:scale(0);opacity:.3;}40%{transform:scale(1);opacity:1;}}
@@ -168,60 +175,74 @@ textarea{height:90px;line-height:1.6;}
 </head>
 <body>
 
-<div class="hearts-bg" id="heartsBg"></div>
+<div class="confetti-bg" id="confettiBg"></div>
 
 <div class="loading-overlay" id="loadingOverlay">
-  <div class="loading-orb">✦</div>
-  <div class="loading-title" id="loadingTitle">Putting it together…</div>
+  <div class="loading-orb">🎂</div>
+  <div class="loading-title" id="loadingTitle">Wrapping it up…</div>
   <div class="loading-sub" id="loadingSub">One moment</div>
   <div class="loading-dots"><span></span><span></span><span></span></div>
 </div>
 
 <header>
-  <div class="badge">Father's Day · A Keepsake</div>
-  <h1>For Dad,<br/><em>With Gratitude</em></h1>
-  <p class="tagline">Memories he pops open, one by one — and a letter to keep after</p>
+  <div class="badge">Birthday Surprise · Unforgettable</div>
+  <h1>Pop the balloons,<br/><em>feel the love</em></h1>
+  <p class="tagline">A birthday experience they pop open — memories, photos, and a letter to keep</p>
 </header>
 
 <div class="wrap">
   <div class="paid-banner" id="paidBanner">
-    <span style="font-size:22px;color:var(--olive);">✓</span>
-    <div><strong>Payment successful.</strong> Here's his permanent link.</div>
+    <span style="font-size:22px;color:var(--teal);">✓</span>
+    <div><strong>Payment successful.</strong> Here's their permanent birthday link.</div>
   </div>
 
   <div class="card">
     <div class="step-badge">1</div>
-    <div class="card-title">About Him</div>
-    <div class="card-sub">A couple of details to make this his.</div>
-    <div class="f"><label class="lbl">His Name *</label><input type="text" id="herName" placeholder="Dad, Papa, his name…"/></div>
+    <div class="card-title">Who's the birthday person?</div>
+    <div class="card-sub">Just a couple of details to make this theirs.</div>
+    <div class="f"><label class="lbl">Their Name *</label><input type="text" id="herName" placeholder="Their name or nickname…"/></div>
     <div class="f"><label class="lbl">From</label><input type="text" id="yourName" placeholder="Who's this from?"/></div>
   </div>
 
   <div class="card">
     <div class="step-badge">2</div>
     <div class="card-title">Memory Balloons</div>
-    <div class="card-sub">Each one he pops reveals a memory, a thank-you, or something you've never said out loud — add a photo if you've got one.</div>
+    <div class="card-sub">Each balloon they pop reveals a memory, a wish, or something you've never said out loud. Add a photo if you have one.</div>
     <div class="balloon-list" id="balloonList"></div>
-    <button class="add-balloon-btn" onclick="addBalloon()">+ Add another memory</button>
+    <button class="add-balloon-btn" onclick="addBalloon()">+ Add another balloon</button>
   </div>
 
   <div class="card">
     <div class="step-badge">3</div>
-    <div class="card-title">The Letter</div>
-    <div class="card-sub">What he reads at the end — leave blank for a heartfelt default.</div>
-    <div class="f"><label class="lbl">Your Message</label>
-      <textarea id="msg" placeholder="Leave it blank and we'll write something he'll want to keep…"></textarea>
+    <div class="card-title">The Birthday Letter</div>
+    <div class="card-sub">What they read at the end — or leave blank and we'll write something they'll want to screenshot.</div>
+    <div class="f">
+      <label class="lbl">Your Message</label>
+      <textarea id="msg" placeholder="Leave blank for a heartfelt birthday default…"></textarea>
+    </div>
+    <div class="f">
+      <label class="lbl">Message Tone</label>
+      <div class="tone-row">
+        <button class="tone-btn sel" data-tone="warm" onclick="setTone('warm',this)">Warm 🤍</button>
+        <button class="tone-btn" data-tone="funny" onclick="setTone('funny',this)">Funny 😂</button>
+        <button class="tone-btn" data-tone="hype" onclick="setTone('hype',this)">Hype 🔥</button>
+        <button class="tone-btn" data-tone="poetic" onclick="setTone('poetic',this)">Poetic ✨</button>
+      </div>
+      <button class="gen-btn" id="genBtn" onclick="generateMessage()">
+        <div class="gen-spinner" id="genSpinner"></div>
+        <span id="genBtnText">✦ Write it for me with AI</span>
+      </button>
     </div>
   </div>
 
   <div class="hint-box">
-    <strong>Photos upload instantly</strong> — the link opens clean on any phone, no app needed.
+    <strong>Photos upload instantly</strong> — the surprise link opens clean on any phone, no app needed.
   </div>
 
   <div class="price-badge">
     <div class="price-left">
       <div class="price-label">One-time payment</div>
-      <div class="price-amount"><span>₹</span><span id="displayPrice">79</span></div>
+      <div class="price-amount"><span>₹</span><span id="displayPrice">99</span></div>
     </div>
     <div class="price-features">
       <div class="price-feat">Permanent shareable link</div>
@@ -233,7 +254,6 @@ textarea{height:90px;line-height:1.6;}
 
   <div class="err" id="errBox"></div>
 
-  <!-- Coupon code -->
   <div class="coupon-row">
     <input type="text" id="couponInput" placeholder="Got a coupon code?"/>
     <button class="coupon-apply-btn" onclick="applyCoupon()">Apply</button>
@@ -242,77 +262,114 @@ textarea{height:90px;line-height:1.6;}
 
   <button class="free-prev-btn" onclick="doPreview()">Preview first — free, 30s</button>
   <button class="pay-btn" id="payBtn" onclick="doPay()">
-    Get His Tribute Link — ₹<span id="priceLabel">79</span>
+    🎂 Send the Birthday Surprise — ₹<span id="priceLabel">99</span>
   </button>
 
   <div class="result" id="resultBox">
-    <div class="result-icon">✦</div>
-    <h3>Ready to send</h3>
+    <div class="result-icon">🎉</div>
+    <h3>Ready to send!</h3>
     <p>Copy this link and send it — works on any phone.</p>
     <div class="link-box">
       <a id="openLinkInline" href="#" target="_blank" rel="noopener" style="flex:1;font-size:12px;color:var(--ink);word-break:break-all;text-decoration:underline;opacity:0.85;">—</a>
       <button class="copy-btn" id="copyBtn" onclick="copyIt()">Copy Link</button>
     </div>
     <a id="openLink" class="open-btn" href="#" target="_blank" rel="noopener">Open &amp; Preview →</a>
-    <a id="waLink" href="#" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;border-radius:14px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;text-decoration:none;margin-bottom:12px;">Share via WhatsApp</a>
+    <a id="waLink" href="#" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;border-radius:14px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;text-decoration:none;margin-bottom:12px;">Share via WhatsApp 🎉</a>
     <button class="reset-btn" onclick="resetAll()">Make another ↩</button>
   </div>
 </div>
-
 
 <script>
 var SUPA_URL = 'https://rulpkgkgieztsdvpkuso.supabase.co';
 var SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ1bHBrZ2tnaWV6dHNkdnBrdXNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA0ODE3OTYsImV4cCI6MjA5NjA1Nzc5Nn0.VY50njf_lIvFP5RpwlTTiSe2z8vnyuwP-Gi9krKk60U';
 var RZP_KEY = 'rzp_live_SmizRaPApu81ZS';
-
-
-// live domain for this Father's Day deployment
 var SITE_URL = 'https://sorry-rxw.pages.dev/';
 var BUCKET = 'photos';
+var selectedTone = 'warm';
 
-// ── Coupon codes ──
 var COUPONS = {
-  'FEIN':  { amount: 0,    display: '₹0',  label: 'Free!' },
-  'FEIN1': { amount: 100,  display: '₹1',  label: '₹1'   },
-  'JDP60': { amount: 5900, display: '₹59', label: '₹59'  },
+  'FEIN':  { amount: 0,     label: '₹0 (Free)' },
+  'FEIN1': { amount: 100,   label: '₹1'        },
+  'JDP60': { amount: 5900,  label: '₹59'       },
 };
 var appliedCoupon = null;
+
+function setTone(tone, btn) {
+  selectedTone = tone;
+  document.querySelectorAll('.tone-btn').forEach(function(b){ b.classList.remove('sel'); });
+  btn.classList.add('sel');
+}
+
+async function generateMessage() {
+  var name = document.getElementById('herName').value.trim() || 'them';
+  var from = document.getElementById('yourName').value.trim() || '';
+  var btn = document.getElementById('genBtn');
+  var spinner = document.getElementById('genSpinner');
+  var txt = document.getElementById('genBtnText');
+  btn.disabled = true; spinner.style.display = 'block'; txt.textContent = 'Writing…';
+
+  var toneMap = {
+    warm: 'heartfelt and warm — speak from the heart, celebrate who they are',
+    funny: 'funny and playful — roast them a little, celebrate the chaos they bring, end warmly',
+    hype: 'hype and energetic — big energy, celebrate them turning up another year stronger',
+    poetic: 'poetic and lyrical — use vivid imagery and metaphor, make it feel like a small poem'
+  };
+
+  var prompt = 'Write a short birthday letter (3–4 sentences, no more) for someone named ' + name + '. Tone: ' + toneMap[selectedTone] + '. ' + (from ? 'It is written from ' + from + '.' : '') + ' Write only the letter body — no subject, no greeting, no sign-off. Make it feel personal, not generic.';
+
+  try {
+    var res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': '', 'anthropic-version': '2023-06-01' },
+      body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 300, messages: [{ role: 'user', content: prompt }] })
+    });
+    var j = await res.json();
+    var text = (j.content && j.content[0] && j.content[0].text) ? j.content[0].text.trim() : '';
+    if (text) document.getElementById('msg').value = text;
+    else showErr('AI generation failed — write your own message instead.');
+  } catch(e) {
+    showErr('AI generation failed — write your own message.');
+  }
+  btn.disabled = false; spinner.style.display = 'none'; txt.textContent = '✦ Write it for me with AI';
+}
 
 function applyCoupon() {
   var code = document.getElementById('couponInput').value.trim().toUpperCase();
   if (!code) { showCouponMsg('Enter a coupon code first', false); return; }
   if (COUPONS[code]) {
-    appliedCoupon = { code: code, amount: COUPONS[code].amount, display: COUPONS[code].display };
-    document.getElementById('priceLabel').textContent = COUPONS[code].label;
-    document.getElementById('displayPrice').textContent = COUPONS[code].label;
-    showCouponMsg('Coupon applied — you pay ' + COUPONS[code].display, true);
+    appliedCoupon = { code: code, amount: COUPONS[code].amount };
+    var lbl = COUPONS[code].label;
+    document.getElementById('priceLabel').textContent = lbl;
+    document.getElementById('displayPrice').textContent = lbl;
+    showCouponMsg('Coupon applied — you pay ' + lbl, true);
   } else {
     appliedCoupon = null;
-    document.getElementById('priceLabel').textContent = '79';
-    document.getElementById('displayPrice').textContent = '79';
+    document.getElementById('priceLabel').textContent = '99';
+    document.getElementById('displayPrice').textContent = '99';
     showCouponMsg('Invalid coupon code', false);
   }
 }
 
-function showCouponMsg(msg, success) {
+function showCouponMsg(msg, ok) {
   var el = document.getElementById('couponMsg');
-  el.textContent = msg;
-  el.style.display = 'block';
-  el.className = 'coupon-msg ' + (success ? 'ok' : 'fail');
+  el.textContent = msg; el.style.display = 'block';
+  el.className = 'coupon-msg ' + (ok ? 'ok' : 'fail');
 }
 
-// ── Ambient floating marks ──
+// Floating confetti
 (function(){
-  var e=['✦','✧','·','◆'], w=document.getElementById('heartsBg');
-  for(var i=0;i<12;i++){
-    var d=document.createElement('div'); d.className='fheart';
-    d.textContent=e[i%e.length];
-    d.style.cssText='left:'+Math.random()*100+'%;animation-delay:'+Math.random()*20+'s;animation-duration:'+(14+Math.random()*14)+'s;font-size:'+(10+Math.random()*10)+'px;position:absolute;';
-    w.appendChild(d);
+  var colors=['#7c3fbf','#d94f8a','#e8a020','#2ab5a0','#b07ee0','#f5cc6a','#fdf8ff'];
+  var shapes=['50%','3px','2px'];
+  var w = document.getElementById('confettiBg');
+  for(var i=0;i<16;i++){
+    var el=document.createElement('div'); el.className='fc';
+    var sz = 5 + Math.random()*7;
+    el.style.cssText = 'left:'+Math.random()*100+'%;width:'+sz+'px;height:'+sz+'px;background:'+colors[i%colors.length]+';border-radius:'+shapes[i%shapes.length]+';animation-delay:'+Math.random()*20+'s;animation-duration:'+(13+Math.random()*13)+'s;position:absolute;';
+    w.appendChild(el);
   }
 })();
 
-var balloons=[], bCount=0;
+var balloons = [], bCount = 0;
 
 function compress(dataURL, maxPx, q) {
   return new Promise(function(res) {
@@ -322,8 +379,7 @@ function compress(dataURL, maxPx, q) {
       if (w > h) { if (w > maxPx) { h = Math.round(h * maxPx / w); w = maxPx; } }
       else { if (h > maxPx) { w = Math.round(w * maxPx / h); h = maxPx; } }
       var c = document.createElement('canvas'); c.width = w; c.height = h;
-      var ctx = c.getContext('2d'); ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
-      ctx.drawImage(img, 0, 0, w, h);
+      c.getContext('2d').drawImage(img, 0, 0, w, h);
       res(c.toDataURL('image/webp', q));
     };
     img.src = dataURL;
@@ -333,13 +389,13 @@ function compress(dataURL, maxPx, q) {
 async function uploadToStorage(dataURL, idx) {
   var res = await fetch(dataURL);
   var blob = await res.blob();
-  var fileName = 'memory-' + Date.now() + '-' + idx + '.webp';
-  var uploadRes = await fetch(SUPA_URL + '/storage/v1/object/' + BUCKET + '/' + fileName, {
+  var fileName = 'bday-' + Date.now() + '-' + idx + '.webp';
+  var r = await fetch(SUPA_URL + '/storage/v1/object/' + BUCKET + '/' + fileName, {
     method: 'POST',
     headers: {'apikey': SUPA_KEY,'Authorization': 'Bearer ' + SUPA_KEY,'Content-Type': 'image/webp','x-upsert': 'true'},
     body: blob
   });
-  if (!uploadRes.ok) { var err = await uploadRes.text(); throw new Error('Photo upload failed: ' + err); }
+  if (!r.ok) throw new Error('Photo upload failed: ' + await r.text());
   return SUPA_URL + '/storage/v1/object/public/' + BUCKET + '/' + fileName;
 }
 
@@ -351,7 +407,7 @@ function addBalloon() {
   item.innerHTML =
     '<div class="b-item-header">' +
       '<div class="b-num">' + (idx+1) + '</div>' +
-      '<div class="b-item-title">Memory ' + (idx+1) + '</div>' +
+      '<div class="b-item-title">Balloon ' + (idx+1) + '</div>' +
       '<button class="b-del" onclick="removeBalloon(' + idx + ')">✕</button>' +
     '</div>' +
     '<div class="b-row">' +
@@ -367,259 +423,202 @@ function addBalloon() {
       '</div>' +
       '<div style="display:flex;flex-direction:column;">' +
         '<label class="lbl">Message *</label>' +
-        '<textarea id="bm' + idx + '" placeholder="e.g. Thank you for teaching me to drive" style="flex:1;min-height:80px;" oninput="updateMsg(' + idx + ',this.value)"></textarea>' +
+        '<textarea id="bm' + idx + '" placeholder="e.g. Happy birthday! Remember when we…" style="flex:1;min-height:80px;" oninput="updateMsg(' + idx + ',this.value)"></textarea>' +
       '</div>' +
     '</div>';
   document.getElementById('balloonList').appendChild(item);
 }
 
-function removeBalloon(idx) {
-  var el = document.getElementById('bi' + idx); if(el) el.remove();
-  if(balloons[idx]) balloons[idx] = null;
-}
+function removeBalloon(idx) { var el=document.getElementById('bi'+idx); if(el) el.remove(); if(balloons[idx]) balloons[idx]=null; }
 
 function loadPic(idx, inp) {
-  if(!inp.files || !inp.files[0]) return;
-  var slot = document.getElementById('ps' + idx); slot.classList.add('uploading');
-  var r = new FileReader();
-  r.onload = async function(e) {
+  if(!inp.files||!inp.files[0]) return;
+  var slot=document.getElementById('ps'+idx); slot.classList.add('uploading');
+  var r=new FileReader();
+  r.onload=async function(e){
     try {
-      var compressed = await compress(e.target.result, 600, 0.70);
-      var url = await uploadToStorage(compressed, idx);
-      balloons[idx].photoUrl = url;
-      document.getElementById('pi' + idx).src = url;
+      var comp=await compress(e.target.result,600,.70);
+      var url=await uploadToStorage(comp,idx);
+      balloons[idx].photoUrl=url;
+      document.getElementById('pi'+idx).src=url;
       slot.classList.remove('uploading'); slot.classList.add('filled');
-    } catch(err) { slot.classList.remove('uploading'); showErr('Photo upload failed. Check your internet and try again.'); console.error(err); }
+    } catch(err){ slot.classList.remove('uploading'); showErr('Photo upload failed. Check connection and try again.'); }
   };
   r.readAsDataURL(inp.files[0]);
 }
 
-function removePic(idx, e) {
-  e.stopPropagation(); balloons[idx].photoUrl = null;
-  document.getElementById('pi' + idx).src = '';
-  document.getElementById('ps' + idx).classList.remove('filled');
-  var inp = document.querySelector('#ps' + idx + ' input[type=file]'); if(inp) inp.value = '';
+function removePic(idx,e) {
+  e.stopPropagation(); balloons[idx].photoUrl=null;
+  document.getElementById('pi'+idx).src='';
+  document.getElementById('ps'+idx).classList.remove('filled');
+  var inp=document.querySelector('#ps'+idx+' input[type=file]'); if(inp) inp.value='';
 }
-function updateMsg(idx, val) { if(balloons[idx]) balloons[idx].msg = val; }
+function updateMsg(idx,val){ if(balloons[idx]) balloons[idx].msg=val; }
 
 addBalloon(); addBalloon(); addBalloon();
 
 function gatherData() {
-  var herName = document.getElementById('herName').value.trim();
-  var yourName = document.getElementById('yourName').value.trim();
-  var msg = document.getElementById('msg').value.trim();
-  if(!herName) { showErr('Please enter his name'); return null; }
-  var active = balloons.filter(function(b){ return b && b.msg.trim(); });
-  if(!active.length) { showErr('Add at least one memory'); return null; }
-  var uploading = document.querySelectorAll('.photo-slot.uploading');
-  if(uploading.length) { showErr('Please wait for photos to finish uploading'); return null; }
-  return { n: herName, f: yourName, m: msg, b: active };
+  var name=document.getElementById('herName').value.trim();
+  var from=document.getElementById('yourName').value.trim();
+  var msg=document.getElementById('msg').value.trim();
+  if(!name){ showErr('Please enter their name'); return null; }
+  var active=balloons.filter(function(b){ return b&&b.msg.trim(); });
+  if(!active.length){ showErr('Add at least one balloon message'); return null; }
+  if(document.querySelectorAll('.photo-slot.uploading').length){ showErr('Wait for photos to finish uploading'); return null; }
+  return { n: name, f: from, m: msg, b: active };
 }
 
 async function saveToSupabase(payload) {
-  var res = await fetch(SUPA_URL + '/rest/v1/mday', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json','apikey': SUPA_KEY,'Authorization': 'Bearer ' + SUPA_KEY,'Prefer': 'return=representation'},
-    body: JSON.stringify({ data: JSON.stringify(payload) })
+  var res=await fetch(SUPA_URL+'/rest/v1/mday',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Prefer':'return=representation'},
+    body:JSON.stringify({ data: JSON.stringify(payload) })
   });
   if(!res.ok) throw new Error(await res.text());
-  var j = await res.json(); return j[0].id;
+  return (await res.json())[0].id;
 }
 
-function viewURL(id) { return SITE_URL + 'view.html?id=' + id; }
+function viewURL(id){ return SITE_URL+'view.html?id='+id; }
 
 async function doPreview() {
-  var d = gatherData(); if(!d) return;
-  d.isPreview = true;
+  var d=gatherData(); if(!d) return;
+  d.isPreview=true;
   try {
-    var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(d))));
-    var url = SITE_URL + 'view.html?preview=' + encoded;
-    var a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    var encoded=btoa(unescape(encodeURIComponent(JSON.stringify(d))));
+    var url=SITE_URL+'view.html?preview='+encoded;
+    var a=document.createElement('a'); a.href=url; a.target='_blank'; a.rel='noopener noreferrer';
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
-  } catch(e) { showErr('Failed: ' + e.message); }
+  } catch(e){ showErr('Failed: '+e.message); }
+}
+
+async function markPaid(id) {
+  for(var attempt=0;attempt<4;attempt++){
+    try {
+      var r=await fetch(SUPA_URL+'/rest/v1/mday?id=eq.'+id,{
+        method:'PATCH',
+        headers:{'Content-Type':'application/json','apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY},
+        body:JSON.stringify({ paid: true })
+      });
+      if(r.ok) return true;
+    } catch(e){}
+    await new Promise(function(res){ setTimeout(res, 800*(attempt+1)); });
+  }
+  return false;
 }
 
 async function doPay() {
-  var d = gatherData(); if (!d) return;
+  var d=gatherData(); if(!d) return;
+  var finalAmount=appliedCoupon ? appliedCoupon.amount : 9900;
 
-  var finalAmount = appliedCoupon ? appliedCoupon.amount : 7900;
-
-  // Free coupon — skip Razorpay entirely
-  if (finalAmount === 0) {
-    showLoading('Saving his tribute…', 'Almost there');
+  if(finalAmount===0){
+    showLoading('Saving the surprise…','Almost there');
     try {
-      var id = await saveToSupabase(d);
-      var patchOk = false;
-      for (var attempt = 0; attempt < 4 && !patchOk; attempt++) {
-        try {
-          var r = await fetch(SUPA_URL + '/rest/v1/mday?id=eq.' + id, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json', 'apikey': SUPA_KEY, 'Authorization': 'Bearer ' + SUPA_KEY },
-            body: JSON.stringify({ paid: true })
-          });
-          if (r.ok) patchOk = true;
-        } catch (e) {}
-        if (!patchOk) await new Promise(function(res){ setTimeout(res, 800 * (attempt + 1)); });
-      }
-      if (!patchOk) {
-        console.error('PAID-FLAG-FAILED id=' + id);
-        showErr("Saved but having trouble confirming — please screenshot this and send me your link: " + viewURL(id));
-      }
+      var id=await saveToSupabase(d);
+      var ok=await markPaid(id);
+      if(!ok){ console.error('PAID-FLAG-FAILED id='+id); showErr("Saved but trouble confirming — screenshot this link: "+viewURL(id)); }
       hideLoading();
       document.getElementById('paidBanner').classList.add('show');
       showResult(id);
-      document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } catch(e) { hideLoading(); showErr('Failed: ' + e.message); }
+    } catch(e){ hideLoading(); showErr('Failed: '+e.message); }
     return;
   }
 
-  showLoading('Saving his tribute…', 'Almost there');
+  showLoading('Saving the surprise…','Almost there');
   try {
-    var id = await saveToSupabase(d);
+    var id=await saveToSupabase(d);
     hideLoading();
-    var options = {
+    var rzp=new Razorpay({
       key: RZP_KEY,
       amount: finalAmount,
       currency: 'INR',
-      name: 'Lumina',
-      description: "Father's Day Tribute Link",
+      name: 'Birthday Surprise',
+      description: 'Birthday Surprise Link',
       image: 'https://sorry-rxw.pages.dev/favicon.ico',
-      handler: async function (response) {
-  var patchOk = false;
-  for (var attempt = 0; attempt < 4 && !patchOk; attempt++) {
-    try {
-      var r = await fetch(SUPA_URL + '/rest/v1/mday?id=eq.' + id, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json', 'apikey': SUPA_KEY, 'Authorization': 'Bearer ' + SUPA_KEY },
-        body: JSON.stringify({ paid: true })
-      });
-      if (r.ok) patchOk = true;
-    } catch (e) {}
-    if (!patchOk) await new Promise(function(res){ setTimeout(res, 800 * (attempt + 1)); });
-  }
-  if (!patchOk) {
-    // don't silently lose it — log it so you can fix manually
-    console.error('PAID-FLAG-FAILED id=' + id);
-    showErr("Payment went through but we're having trouble saving that — please screenshot this and message me your link: " + viewURL(id));
-  }
-  document.getElementById('paidBanner').classList.add('show');
-  showResult(id);
-  document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
-},
-      prefill: { name: '', email: '', contact: '' },
-      theme: { color: '#8a9b5e' },
-      modal: { ondismiss: function () {} }
-    };
-    var rzp = new Razorpay(options);
-    rzp.on('payment.failed', function (response) { showErr('Payment failed: ' + response.error.description); });
+      handler: async function(response){
+        var ok=await markPaid(id);
+        if(!ok){ console.error('PAID-FLAG-FAILED id='+id); showErr("Payment went through but trouble saving — screenshot this: "+viewURL(id)); }
+        document.getElementById('paidBanner').classList.add('show');
+        showResult(id);
+        document.getElementById('resultBox').scrollIntoView({behavior:'smooth',block:'center'});
+      },
+      prefill: { name:'', email:'', contact:'' },
+      theme: { color: '#7c3fbf' },
+      modal: { ondismiss: function(){} }
+    });
+    rzp.on('payment.failed', function(r){ showErr('Payment failed: '+r.error.description); });
     rzp.open();
-  } catch (e) { hideLoading(); showErr('Failed to save: ' + e.message); }
+  } catch(e){ hideLoading(); showErr('Failed to save: '+e.message); }
 }
 
-function showResult(id) {
-  var url = viewURL(id); window._url = url;
-  document.getElementById('openLinkInline').href = url;
-  document.getElementById('openLinkInline').textContent = url;
-  document.getElementById('openLink').href = url;
-  document.getElementById('waLink').href = 'https://wa.me/?text=' + encodeURIComponent("Made something for you, Dad. Open this: " + url);
-  var box = document.getElementById('resultBox'); box.style.display = 'block';
-  box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+function showResult(id){
+  var url=viewURL(id); window._url=url;
+  document.getElementById('openLinkInline').href=url;
+  document.getElementById('openLinkInline').textContent=url;
+  document.getElementById('openLink').href=url;
+  document.getElementById('waLink').href='https://wa.me/?text='+encodeURIComponent('🎂 Made you a birthday surprise — pop the balloons! '+url);
+  var box=document.getElementById('resultBox'); box.style.display='block';
+  box.scrollIntoView({behavior:'smooth',block:'center'});
 }
 
-function showLoading(t, s) {
-  document.getElementById('loadingTitle').textContent = t;
-  document.getElementById('loadingSub').textContent = s;
-  document.getElementById('loadingOverlay').classList.add('show');
-}
-function hideLoading() { document.getElementById('loadingOverlay').classList.remove('show'); }
-function showErr(m) {
-  var b = document.getElementById('errBox'); b.textContent = '⚠ ' + m; b.style.display = 'block';
-  setTimeout(function(){ b.style.display = 'none'; }, 9000);
-}
+function showLoading(t,s){ document.getElementById('loadingTitle').textContent=t; document.getElementById('loadingSub').textContent=s; document.getElementById('loadingOverlay').classList.add('show'); }
+function hideLoading(){ document.getElementById('loadingOverlay').classList.remove('show'); }
+function showErr(m){ var b=document.getElementById('errBox'); b.textContent='⚠ '+m; b.style.display='block'; setTimeout(function(){ b.style.display='none'; },9000); }
 
-function copyIt() {
-  var url = window._url || document.getElementById('openLink').href;
-  var btn = document.getElementById('copyBtn');
-  if(navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(url).then(function(){ btn.textContent = 'Copied ✓'; setTimeout(function(){ btn.textContent = 'Copy Link'; }, 2500); });
+function copyIt(){
+  var url=window._url||document.getElementById('openLink').href;
+  var btn=document.getElementById('copyBtn');
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(function(){ btn.textContent='Copied ✓'; setTimeout(function(){ btn.textContent='Copy Link'; },2500); });
   } else {
-    var ta = document.createElement('textarea'); ta.value = url; ta.style.cssText = 'position:fixed;opacity:0;'; document.body.appendChild(ta);
+    var ta=document.createElement('textarea'); ta.value=url; ta.style.cssText='position:fixed;opacity:0;'; document.body.appendChild(ta);
     ta.focus(); ta.select();
-    try { document.execCommand('copy'); btn.textContent = 'Copied ✓'; setTimeout(function(){ btn.textContent = 'Copy Link'; }, 2500); } catch(e){}
+    try { document.execCommand('copy'); btn.textContent='Copied ✓'; setTimeout(function(){ btn.textContent='Copy Link'; },2500); } catch(e){}
     document.body.removeChild(ta);
   }
 }
 
-function resetAll() {
-  document.getElementById('herName').value = ''; document.getElementById('yourName').value = '';
-  document.getElementById('msg').value = ''; document.getElementById('balloonList').innerHTML = '';
-  document.getElementById('resultBox').style.display = 'none';
+function resetAll(){
+  document.getElementById('herName').value=''; document.getElementById('yourName').value='';
+  document.getElementById('msg').value=''; document.getElementById('balloonList').innerHTML='';
+  document.getElementById('resultBox').style.display='none';
   document.getElementById('paidBanner').classList.remove('show');
-  document.getElementById('couponInput').value = '';
-  document.getElementById('couponMsg').style.display = 'none';
-  document.getElementById('priceLabel').textContent = '79';
-  document.getElementById('displayPrice').textContent = '79';
-  appliedCoupon = null;
-  balloons = []; bCount = 0;
+  document.getElementById('couponInput').value=''; document.getElementById('couponMsg').style.display='none';
+  document.getElementById('priceLabel').textContent='99'; document.getElementById('displayPrice').textContent='99';
+  appliedCoupon=null; balloons=[]; bCount=0;
   addBalloon(); addBalloon(); addBalloon();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-window.addEventListener('load', function() {
-  var params = new URLSearchParams(window.location.search);
-  var prefillId = params.get('prefill');
-  var dataParam = params.get('data');
-  window.history.replaceState({}, '', window.location.pathname);
-  if (dataParam) {
-    // came from a preview link — decode and fill directly, no DB fetch needed
-    try {
-      var d = JSON.parse(decodeURIComponent(escape(atob(dataParam))));
-      prefillFromData(d);
-    } catch(e) { console.error('data prefill failed', e); }
-  } else if (prefillId) {
+window.addEventListener('load', function(){
+  var params=new URLSearchParams(window.location.search);
+  var prefillId=params.get('prefill');
+  var dataParam=params.get('data');
+  window.history.replaceState({},'',window.location.pathname);
+  if(dataParam){
+    try { prefillFromData(JSON.parse(decodeURIComponent(escape(atob(dataParam))))); } catch(e){}
+  } else if(prefillId){
     prefillForm(prefillId);
   }
 });
 
-async function prefillForm(id) {
+async function prefillForm(id){
   try {
-    var res = await fetch(SUPA_URL + '/rest/v1/mday?id=eq.' + id + '&select=data', {
-      headers: { 'apikey': SUPA_KEY, 'Authorization': 'Bearer ' + SUPA_KEY }
-    });
-    var j = await res.json(); if(!j || !j[0] || !j[0].data) return;
-    var d = JSON.parse(j[0].data);
-    if(d.n) document.getElementById('herName').value = d.n;
-    if(d.f) document.getElementById('yourName').value = d.f;
-    if(d.m) document.getElementById('msg').value = d.m;
-    if(d.b && d.b.length) {
-      document.getElementById('balloonList').innerHTML = ''; balloons = []; bCount = 0;
-      d.b.forEach(function(b, i) {
-        addBalloon();
-        if(b.msg) { balloons[i].msg = b.msg; var ta = document.getElementById('bm'+i); if(ta) ta.value = b.msg; }
-        if(b.photoUrl) { balloons[i].photoUrl = b.photoUrl; document.getElementById('pi'+i).src = b.photoUrl; document.getElementById('ps'+i).classList.add('filled'); }
-      });
-    }
-  } catch(e) { console.error('prefill failed', e); }
+    var res=await fetch(SUPA_URL+'/rest/v1/mday?id=eq.'+id+'&select=data',{headers:{'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY}});
+    var j=await res.json(); if(!j||!j[0]||!j[0].data) return;
+    prefillFromData(JSON.parse(j[0].data));
+  } catch(e){}
 }
-function prefillFromData(d) {
-  if (d.n) document.getElementById('herName').value = d.n;
-  if (d.f) document.getElementById('yourName').value = d.f;
-  if (d.m) document.getElementById('msg').value = d.m;
-  if (d.b && d.b.length) {
-    document.getElementById('balloonList').innerHTML = '';
-    balloons = []; bCount = 0;
-    d.b.forEach(function(b, i) {
+
+function prefillFromData(d){
+  if(d.n) document.getElementById('herName').value=d.n;
+  if(d.f) document.getElementById('yourName').value=d.f;
+  if(d.m) document.getElementById('msg').value=d.m;
+  if(d.b&&d.b.length){
+    document.getElementById('balloonList').innerHTML=''; balloons=[]; bCount=0;
+    d.b.forEach(function(b,i){
       addBalloon();
-      if (b.msg) {
-        balloons[i].msg = b.msg;
-        var ta = document.getElementById('bm' + i);
-        if (ta) ta.value = b.msg;
-      }
-      if (b.photoUrl) {
-        balloons[i].photoUrl = b.photoUrl;
-        document.getElementById('pi' + i).src = b.photoUrl;
-        document.getElementById('ps' + i).classList.add('filled');
-      }
+      if(b.msg){ balloons[i].msg=b.msg; var ta=document.getElementById('bm'+i); if(ta) ta.value=b.msg; }
+      if(b.photoUrl){ balloons[i].photoUrl=b.photoUrl; document.getElementById('pi'+i).src=b.photoUrl; document.getElementById('ps'+i).classList.add('filled'); }
     });
   }
 }
